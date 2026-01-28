@@ -34,7 +34,7 @@ class EquationParser:
     EQUATION_PATTERNS = [
         # LaTeX inline: $...$ or \(...\)
         (r'\$([^$]+)\$', 'inline'),
-        (r'\\\(([^\)]+)\\\)', 'inline'),
+        (r'\\\(([^)]+)\\\)', 'inline'),
         
         # LaTeX display: $$...$$ or \[...\]
         (r'\$\$([^$]+)\$\$', 'display'),
@@ -47,11 +47,11 @@ class EquationParser:
         (r'([A-Za-z_][A-Za-z0-9_]*\s*=\s*[^\.\n]+)', 'assignment'),
         
         # Fraction patterns: a/b or \frac{a}{b}
-        (r'\\frac\{[^}]+\}\{[^}]+\}', 'fraction'),
+        (r'\\(frac\{([^}]+)\}\{([^}]+)\})', 'fraction'),
         
         # Subscript/superscript: a_b, a^b
-        (r'[A-Za-z]_\{[^}]+\}', 'subscript'),
-        (r'[A-Za-z]\^\{[^}]+\}', 'superscript'),
+        (r'([A-Za-z]_\{([^}]+)\})', 'subscript'),
+        (r'([A-Za-z]\^\{([^}]+)\})', 'superscript'),
     ]
     
     def __init__(self):
@@ -77,7 +77,11 @@ class EquationParser:
             matches = re.finditer(pattern, text, re.MULTILINE | re.DOTALL)
             
             for match in matches:
-                formula = match.group(1).strip()
+                # Get formula from first capturing group, or full match if no group
+                try:
+                    formula = match.group(1).strip()
+                except IndexError:
+                    formula = match.group(0).strip()
                 
                 # Skip very short or invalid formulas
                 if len(formula) < 3 or formula.count('{') != formula.count('}'):

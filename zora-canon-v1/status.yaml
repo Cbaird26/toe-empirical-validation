@@ -1,0 +1,54 @@
+# Zora Canon v1 Status
+# Single source of truth for MQGT-SCF Theory of Everything
+
+version: "1.0.0"
+last_updated: "2026-01-28T18:30:00Z"
+
+status:
+  proven:
+    description: "Empirically verified or mathematically proven statements"
+    count: 0  # Will be populated after canon ingestion
+    examples: []
+  
+  derived:
+    description: "Logically derived from proven statements or established theory"
+    count: 0
+    examples: []
+  
+  modeled:
+    description: "Numerical/computational predictions with constraints"
+    count: 0
+    examples: []
+  
+  conjectural:
+    description: "Theoretical extensions and hypotheses"
+    count: 0
+    examples: []
+  
+  narrative:
+    description: "Interpretive mappings to scriptural/metaphysical frameworks"
+    count: 0
+    examples: []
+
+empirical_validation:
+  constraint_pipeline:
+    status: "operational"
+    last_run: "2026-01-28T18:28:00Z"
+    results: "results/scalar_constraints/"
+  
+  sensor_experiments:
+    status: "setup_required"
+    phyphox_loop: "pending"
+    magnetometer_experiment: "pending"
+
+canon_coverage:
+  documents_ingested: 0
+  equations_extracted: 0
+  claims_extracted: 0
+  definitions_defined: 0
+
+next_steps:
+  - "Complete canon ingestion of ToE document"
+  - "Extract and structure all equations"
+  - "Classify all claims by type"
+  - "Link claims to equations and experiments"

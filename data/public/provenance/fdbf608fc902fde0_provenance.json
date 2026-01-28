@@ -1,0 +1,25 @@
+{
+  "dataset_id": "fdbf608fc902fde0",
+  "filename": "eotwash_prl2016_digitized_contract_READY.csv",
+  "sha256": "fdbf608fc902fde0b1021c2c935939b10ce3d1b71651ba05ed520f63d4dc7595",
+  "ingested_at": "2026-01-28T23:35:40.213097+00:00",
+  "source_id": "eotwash_prl2016_digitized",
+  "reference": "PRL 116, 131102 (2016) - E\u00f6t-Wash Group",
+  "data_points": 29,
+  "lambda_range": {
+    "min": 2.99528567943e-05,
+    "max": 0.0009288694666433
+  },
+  "alpha_range": {
+    "min": 0.0031135121635991,
+    "max": 439300.9090504425
+  },
+  "canonical_file": "canonical/fdbf608fc902fde0_canonical.csv",
+  "format": "CSV",
+  "columns": [
+    "lambda_m",
+    "alpha_max",
+    "source_id",
+    "ref"
+  ]
+}

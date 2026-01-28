@@ -135,7 +135,7 @@ def generate_provenance_metadata(csv_path: Path, data: List[Dict]) -> Dict:
     return metadata
 
 
-def register_in_mqgt_data_public(data: List[Dict], metadata: Dict, output_dir: Path):
+def register_in_mqgt_data_public(data: List[Dict], metadata: Dict, output_dir: Path, source_csv_path: Path):
     """Register data in mqgt-data-public structure."""
     # Create canonical directory
     canonical_dir = output_dir / "canonical"
@@ -177,7 +177,7 @@ def register_in_mqgt_data_public(data: List[Dict], metadata: Dict, output_dir: P
     
     manifest['datasets'].append({
         'dataset_id': metadata['dataset_id'],
-        'filename': csv_path.name,
+        'filename': source_csv_path.name,
         'sha256': metadata['sha256'],
         'canonical_file': str(canonical_file.relative_to(output_dir)),
         'provenance_file': str(provenance_file.relative_to(output_dir))
@@ -224,7 +224,7 @@ def main():
     
     print("Registering in mqgt-data-public structure...")
     canonical_file, provenance_file = register_in_mqgt_data_public(
-        validated_data, metadata, output_dir
+        validated_data, metadata, output_dir, csv_path
     )
     
     print(f"\n✓ Ingested dataset: {metadata['dataset_id']}")
