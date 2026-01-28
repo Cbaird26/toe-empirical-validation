@@ -5,11 +5,12 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{natbib}
-\usepackage{siunitx}
-\usepackage{booktabs}
-\usepackage{multirow}
 \usepackage{geometry}
 \geometry{margin=1in}
+
+% Optional packages - only load if available
+\IfFileExists{booktabs.sty}{\usepackage{booktabs}}{}
+\IfFileExists{multirow.sty}{\usepackage{multirow}}{}
 
 \title{Empirical Validation of a Unified Theory of Everything:\\
 Modified Quantum Gravity Theory with Scalar Consciousness Fields}
@@ -78,7 +79,7 @@ The predicted strength parameter is:
 where:
 \begin{itemize}
     \item $\theta_{hc}$: Higgs-$\Phi_c$ mixing angle
-    \item $m_h = \SI{125}{\giga\electronvolt}$: Higgs mass
+    \item $m_h = 125$ GeV: Higgs mass
     \item $m_c = \hbar c / \lambda$: Mediator mass
     \item $K_{\text{ToE}}$: Normalization constant
 \end{itemize}
@@ -160,7 +161,7 @@ Figure~\ref{fig:exclusion} shows the joint exclusion plot comparing experimental
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.9\textwidth]{../results/scalar_constraints/golden_exclusion_plot.png}
+\includegraphics[width=0.9\textwidth]{results/scalar_constraints/golden_exclusion_plot.png}
 \caption{Joint exclusion plot showing experimental bounds (red) and ToE prediction band (blue). The theory predictions lie entirely within the allowed region.}
 \label{fig:exclusion}
 \end{figure}
@@ -171,7 +172,7 @@ Figure~\ref{fig:validation} provides a direct comparison of ToE predictions agai
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.9\textwidth]{../results/empirical_validation/toe_predictions_vs_bounds.png}
+\includegraphics[width=0.9\textwidth]{results/empirical_validation/toe_predictions_vs_bounds.png}
 \caption{Direct comparison of ToE predictions (blue band) versus experimental bounds (red line). The prediction band (min, median, max) lies entirely below the exclusion curve, demonstrating that all predictions are within allowed regions. The shaded red area indicates the excluded region above the experimental limit.}
 \label{fig:validation}
 \end{figure}
