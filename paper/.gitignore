@@ -1,0 +1,18 @@
+# LaTeX compilation artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.bcf
+*.run.xml
+
+# PDF (keep source, ignore compiled PDFs if large)
+# Uncomment if you don't want PDFs in git
+# *.pdf

@@ -34,6 +34,10 @@ toe-empirical-validation/
 │       ├── A Completed Theory of Everything --C.M. Baird., et al (2026).pdf
 │       └── A Completed Theory of Everything --C.M. Baird., et al (2026).docx
 │
+├── paper/                       # 📝 LaTeX paper (for Overleaf/journal submission)
+│   ├── main.tex                 # Main paper document
+│   └── README.md                # Compilation instructions
+│
 ├── canon/                       # Knowledge base ingestion system
 │   ├── scripts/                 # Canon ingestion scripts
 │   ├── claim_schema.yaml        # Claim taxonomy
