@@ -1,0 +1,17 @@
+{
+  "plot_generated_at": "/Users/christophermichaelbaird/Downloads/mqgt_scf_reissue_2026-01-20_010939UTC",
+  "bounds_file": "/Users/christophermichaelbaird/Downloads/mqgt_scf_reissue_2026-01-20_010939UTC/results/scalar_constraints/joint_bounds.csv",
+  "lambda_range": {
+    "min": 2.4838598374698923e-05,
+    "max": 19730000000.0
+  },
+  "alpha_exclusion_range": {
+    "min": 9.999999999999999e-19,
+    "max": 1e-14
+  },
+  "predicted_theta_range": {
+    "min": 1e-10,
+    "max": 1e-06
+  },
+  "data_points": 80
+}

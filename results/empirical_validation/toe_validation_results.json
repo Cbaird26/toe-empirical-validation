@@ -1,0 +1,83 @@
+{
+  "summary": {
+    "total_data_points": 80,
+    "violations": 0,
+    "validations": 80,
+    "validation_rate": 1.0,
+    "status": "VALIDATED",
+    "interpretation": {
+      "if_validated": "ToE predictions lie within experimental bounds. Theory is consistent with data.",
+      "if_partial": "Some ToE predictions exceed bounds. Theory may need parameter adjustment.",
+      "if_falsified": "ToE predictions violate experimental bounds. Theory needs revision."
+    }
+  },
+  "violations": [],
+  "sample_validations": [
+    {
+      "lambda_m": 19730000000.0,
+      "predicted_alpha_max": 0.010000000000000002,
+      "bound_alpha": 17640000000000.0,
+      "safety_margin": 1763999999999999.8
+    },
+    {
+      "lambda_m": 15672096071.110077,
+      "predicted_alpha_max": 0.010000000000000002,
+      "bound_alpha": 17640000000000.0,
+      "safety_margin": 1763999999999999.8
+    },
+    {
+      "lambda_m": 12448788406.594212,
+      "predicted_alpha_max": 0.010000000000000002,
+      "bound_alpha": 17640000000000.0,
+      "safety_margin": 1763999999999999.8
+    },
+    {
+      "lambda_m": 9888424119.466084,
+      "predicted_alpha_max": 0.010000000000000002,
+      "bound_alpha": 17640000000000.0,
+      "safety_margin": 1763999999999999.8
+    },
+    {
+      "lambda_m": 7854654475.020501,
+      "predicted_alpha_max": 0.010000000000000002,
+      "bound_alpha": 17640000000000.0,
+      "safety_margin": 1763999999999999.8
+    },
+    {
+      "lambda_m": 6239173823.512213,
+      "predicted_alpha_max": 0.010000000000000002,
+      "bound_alpha": 17640000000000.0,
+      "safety_margin": 1763999999999999.8
+    },
+    {
+      "lambda_m": 4955951929.3684025,
+      "predicted_alpha_max": 0.010000000000000002,
+      "bound_alpha": 17640000000000.0,
+      "safety_margin": 1763999999999999.8
+    },
+    {
+      "lambda_m": 3936652547.4336,
+      "predicted_alpha_max": 0.010000000000000002,
+      "bound_alpha": 17640000000000.0,
+      "safety_margin": 1763999999999999.8
+    },
+    {
+      "lambda_m": 3126994268.7257767,
+      "predicted_alpha_max": 0.010000000000000002,
+      "bound_alpha": 17640000000000.0,
+      "safety_margin": 1763999999999999.8
+    },
+    {
+      "lambda_m": 2483859837.4698915,
+      "predicted_alpha_max": 0.010000000000000002,
+      "bound_alpha": 17640000000000.0,
+      "safety_margin": 1763999999999999.8
+    }
+  ],
+  "prediction_statistics": {
+    "alpha_min": 1e-08,
+    "alpha_max": 0.010000000000000002,
+    "alpha_median_min": 1.0024352844467715e-05,
+    "alpha_median_max": 1.0024352844467715e-05
+  }
+}

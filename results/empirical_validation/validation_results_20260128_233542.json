@@ -1,0 +1,80 @@
+{
+  "timestamp": "2026-01-28T23:35:40.135027+00:00",
+  "tests": [
+    {
+      "test_name": "constraint_pipeline",
+      "status": "passed",
+      "data_points": 80,
+      "bounds_file": "/Users/christophermichaelbaird/Downloads/mqgt_scf_reissue_2026-01-20_010939UTC/results/scalar_constraints/joint_bounds.csv",
+      "dashboard_file": "/Users/christophermichaelbaird/Downloads/mqgt_scf_reissue_2026-01-20_010939UTC/results/scalar_constraints/joint_dashboard.json",
+      "passed": true,
+      "interpretation": "Constraint pipeline generated bounds successfully. ToE predictions must be compared against these bounds to validate theory."
+    },
+    {
+      "test_name": "canon_structure",
+      "status": "passed",
+      "checks": {
+        "canon_dir_exists": true,
+        "canon_v1_exists": true,
+        "status_yaml_exists": true,
+        "definitions_dir_exists": true,
+        "equations_dir_exists": true,
+        "claims_dir_exists": true,
+        "experiments_dir_exists": true
+      },
+      "passed": true,
+      "interpretation": "Canon structure is properly set up for knowledge base queries."
+    },
+    {
+      "test_name": "backend_api",
+      "status": "passed",
+      "checks": {
+        "backend_dir_exists": true,
+        "api_file_exists": true,
+        "requirements_exists": true,
+        "ollama_available": true,
+        "gpt_oss_model_available": true
+      },
+      "passed": true,
+      "interpretation": "Backend API structure is ready. Requires Ollama and gpt-oss:20b model for full functionality."
+    },
+    {
+      "test_name": "sensor_experiments",
+      "status": "passed",
+      "checks": {
+        "experiments_dir_exists": true,
+        "protocol_file_exists": true,
+        "autonomous_loop_exists": true
+      },
+      "phyphox_device_ready": false,
+      "passed": true,
+      "interpretation": "Sensor experiment protocols are documented and ready. Requires Phyphox device for execution."
+    }
+  ],
+  "summary": {
+    "total_tests": 4,
+    "passed_tests": 4,
+    "failed_tests": 0,
+    "success_rate": 1.0
+  },
+  "analysis": {
+    "stats": {
+      "total_data_points": 80,
+      "lambda_range": {
+        "min": 2.4838598374698923e-05,
+        "max": 19730000000.0
+      },
+      "theta_range": {
+        "min": 4200000.0,
+        "max": 420000000.0
+      }
+    },
+    "interpretation": "\n        CONSTRAINT ANALYSIS:\n        \n        1. Experimental bounds have been generated from:\n           - E\u00f6t-Wash torsion balance data (fifth-force)\n           - Atomic clocks/spectroscopy data\n           - Joint exclusion regions\n        \n        2. To validate ToE, we need to:\n           - Compute ToE predictions for \u03b1(\u03bb) across the parameter space\n           - Compare predictions to experimental bounds\n           - Check if predictions lie BELOW exclusion curves (allowed region)\n        \n        3. Current status:\n           - Bounds are established \u2713\n           - ToE prediction computation needed (next step)\n           - Comparison and validation pending\n        \n        4. If ToE is correct:\n           - Predicted \u03b1(\u03bb) should lie within allowed regions\n           - No violations of experimental bounds\n           - Parameter space (\u03ba_\u03a6, \u03b8, m_\u03a6) should be consistent\n        \n        5. If ToE is falsified:\n           - Predictions exceed experimental bounds\n           - Violations indicate theory needs revision\n        ",
+    "next_steps": [
+      "Compute ToE predictions \u03b1(\u03bb) from theory",
+      "Compare predictions to bounds",
+      "Identify allowed parameter regions",
+      "Check for violations"
+    ]
+  }
+}

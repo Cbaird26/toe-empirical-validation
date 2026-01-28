@@ -1,0 +1,79 @@
+{
+  "version": "1.0",
+  "date_generated": "1769643316.9333122",
+  "allowed_region": {
+    "allowed_points": 80,
+    "total_points": 80,
+    "coverage_fraction": 1.0,
+    "min_m_c": 1e-23,
+    "max_m_c": 7.943282347242814e-09,
+    "min_kappa_vc": 65625000000.0,
+    "max_kappa_vc": 6562500000000.0
+  },
+  "next_test_recommendations": [
+    {
+      "channel_name": "atomic_clocks",
+      "sensitivity": 3.6281179138322e-18,
+      "avg_theta_max": 4200000.0,
+      "avg_kappa_vc_max": 65625000000.0,
+      "num_points": 40
+    },
+    {
+      "channel_name": "fifth_force_ep",
+      "sensitivity": 3.6281179138322e-22,
+      "avg_theta_max": 420000000.0,
+      "avg_kappa_vc_max": 6562500000000.0,
+      "num_points": 40
+    }
+  ],
+  "orthogonality_analysis": {
+    "orthogonality_matrix": {
+      "fifth_force_ep_vs_atomic_clocks": {
+        "correlation": 0.0,
+        "overlap_points": 0,
+        "orthogonal": true
+      }
+    },
+    "all_orthogonal": true
+  },
+  "experimental_toggles": {
+    "fifth_force": [
+      "material_swap",
+      "geometry_reversal",
+      "separation_modulation",
+      "pressure_temperature_change",
+      "patch_potential_characterization"
+    ],
+    "equivalence_principle": [
+      "multiple_material_pairs",
+      "seasonal_orbital_modulation",
+      "independent_platform_crosscheck"
+    ],
+    "collider_higgs": [
+      "consistency_across_production_modes",
+      "consistency_across_decay_channels",
+      "multi_observable_agreement"
+    ],
+    "atomic_clocks": [
+      "multi_species_comparison",
+      "multi_site_correlation",
+      "phase_consistency",
+      "consistent_scaling_across_transitions"
+    ]
+  },
+  "channel_coverage": {
+    "fifth_force_ep": 40,
+    "atomic_clocks": 40
+  },
+  "joint_bounds_summary": {
+    "num_points": 80,
+    "m_c_range": [
+      1e-23,
+      7.943282347242814e-09
+    ],
+    "kappa_vc_range": [
+      65625000000.0,
+      6562500000000.0
+    ]
+  }
+}
