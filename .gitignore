@@ -16,12 +16,16 @@ ENV/
 logs/
 *.log
 
-# Results
-results/
-*.png
-*.pdf
+# Results (KEEP plots and validation results for publication)
+# results/  # Commented out - we want to include results for publication
+# *.png     # Commented out - we want plots
+# *.pdf     # Commented out - we want PDFs
 *.jpg
 *.jpeg
+
+# But ignore large temporary files
+results/temp/
+results/*.tmp
 
 # IDE
 .vscode/
