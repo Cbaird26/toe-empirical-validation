@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "MQGT-SCF: Empirical Validation of a Unified Theory of Everything"
+version: "1.0.0"
+doi: "10.5281/zenodo.XXXXXXX"
+date-released: "2026-01-28"
+authors:
+  - given-names: "Christopher Michael"
+    family-names: "Baird"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+    affiliation: "Independent Researcher"
+keywords:
+  - "theory of everything"
+  - "quantum gravity"
+  - "consciousness"
+  - "empirical validation"
+  - "fifth force"
+  - "scalar fields"
+license: MIT
+repository-code: "https://github.com/Cbaird26/toe-empirical-validation"
+abstract: "This repository contains the empirical validation framework for the Modified Quantum Gravity Theory with Scalar Consciousness Fields (MQGT-SCF), a unified Theory of Everything that integrates General Relativity, the Standard Model, and consciousness scalar fields. The validation shows 100% consistency with experimental bounds from fifth-force and atomic clock constraints."
+references:
+  - type: article
+    title: "A Completed Theory of Everything"
+    authors:
+      - given-names: "Christopher Michael"
+        family-names: "Baird"
+    year: 2026
+    note: "Source document available in docs/papers/"

@@ -26,11 +26,18 @@ This repository contains the **empirical validation framework** for the **MQGT-S
 ## 📁 Repository Structure
 
 ```
-mqgt-scf/
-├── canon/                      # Knowledge base ingestion system
-│   ├── scripts/                # Canon ingestion scripts
-│   ├── claim_schema.yaml       # Claim taxonomy
-│   └── manifests/              # Version tracking
+toe-empirical-validation/
+├── docs/                        # Scientific documentation
+│   ├── THEORY.md                # Theoretical framework
+│   ├── VALIDATION.md            # Validation methodology
+│   └── papers/                  # 📄 Source papers (PDF & DOCX)
+│       ├── A Completed Theory of Everything --C.M. Baird., et al (2026).pdf
+│       └── A Completed Theory of Everything --C.M. Baird., et al (2026).docx
+│
+├── canon/                       # Knowledge base ingestion system
+│   ├── scripts/                 # Canon ingestion scripts
+│   ├── claim_schema.yaml        # Claim taxonomy
+│   └── manifests/               # Version tracking
 │
 ├── scripts/                     # Constraint pipeline
 │   ├── run_constraint_pipeline.sh
@@ -51,10 +58,7 @@ mqgt-scf/
 ├── web-mvp/                     # Web interface (Next.js)
 ├── telemetry/                   # Sensor telemetry system
 │
-└── docs/                        # Scientific documentation
-    ├── THEORY.md                # Theoretical framework
-    ├── VALIDATION.md            # Validation methodology
-    └── PUBLICATION.md           # Publication guidelines
+└── CITATION.cff                 # Citation metadata (for academic use)
 ```
 
 ## 🚀 Quick Start
@@ -119,10 +123,18 @@ python3 experiments/run_empirical_validation.py
 
 ## 📖 Documentation
 
-- **[THEORY.md](docs/THEORY.md)** - Complete theoretical framework
-- **[VALIDATION.md](docs/VALIDATION.md)** - Validation methodology
+### For Reviewers
+
+**Start here:**
+- **[Source Papers](docs/papers/)** - Complete Theory of Everything documents (PDF & DOCX)
+- **[THEORY.md](docs/THEORY.md)** - Theoretical framework summary
+- **[VALIDATION.md](docs/VALIDATION.md)** - Empirical validation methodology
 - **[EMPIRICAL_VALIDATION_REPORT.md](EMPIRICAL_VALIDATION_REPORT.md)** - Full validation report
+
+### Additional Resources
+
 - **[EXPERIMENTS.md](experiments/README.md)** - Experimental protocols
+- **[CITATION.cff](CITATION.cff)** - Citation metadata for academic use
 
 ## 🔬 Scientific Rigor
 
