@@ -1,0 +1,150 @@
+# Zora Canon Claim Schema
+# Defines taxonomy, confidence levels, and metadata structure for claims
+
+version: "0.1"
+schema_date: "2026-01-28"
+
+# Claim Types
+claim_types:
+  Proven:
+    description: "Empirically verified or mathematically proven statements"
+    confidence_range: [0.9, 1.0]
+    examples:
+      - "Mathematical derivations from first principles"
+      - "Experimental results with high statistical significance"
+      - "Conservation laws"
+  
+  Derived:
+    description: "Logically derived from proven statements or established theory"
+    confidence_range: [0.7, 0.9]
+    examples:
+      - "Consequences of field equations"
+      - "Predictions from Lagrangian formulations"
+      - "Theoretical implications"
+  
+  Modeled:
+    description: "Predictions from computational models or simulations"
+    confidence_range: [0.5, 0.7]
+    examples:
+      - "Numerical solutions to field equations"
+      - "Parameter space predictions"
+      - "Constraint bounds from experimental data"
+  
+  Conjectural:
+    description: "Theoretical hypotheses not yet fully validated"
+    confidence_range: [0.3, 0.5]
+    examples:
+      - "Proposed mechanisms"
+      - "Theoretical extensions"
+      - "Unexplored implications"
+  
+  Narrative:
+    description: "Interpretive, ethical, or metaphysical statements"
+    confidence_range: [0.0, 0.3]
+    examples:
+      - "Scriptural mappings"
+      - "Ethical implications"
+      - "Consciousness interpretations"
+
+# Confidence Levels
+confidence_levels:
+  - level: "certain"
+    range: [0.95, 1.0]
+    description: "Mathematically proven or empirically confirmed"
+  
+  - level: "very_high"
+    range: [0.85, 0.95]
+    description: "Strong theoretical or empirical support"
+  
+  - level: "high"
+    range: [0.70, 0.85]
+    description: "Well-supported by theory or data"
+  
+  - level: "moderate"
+    range: [0.50, 0.70]
+    description: "Reasonable but not definitive"
+  
+  - level: "low"
+    range: [0.30, 0.50]
+    description: "Speculative or preliminary"
+  
+  - level: "narrative"
+    range: [0.0, 0.30]
+    description: "Interpretive or metaphysical"
+
+# Claim Metadata Schema
+claim_metadata:
+  required_fields:
+    - claim_id
+    - statement
+    - claim_type
+    - confidence
+    - source_document
+    - source_section
+  
+  optional_fields:
+    - equation_refs
+    - scriptural_mapping
+    - citation
+    - dependencies
+    - tags
+    - notes
+    - page_number
+    - line_range
+
+# Scriptural Mapping Categories
+scriptural_mappings:
+  - category: "dharma"
+    description: "Buddhist teachings and principles"
+  
+  - category: "ethics"
+    description: "Ethical frameworks and constraints"
+  
+  - category: "consciousness"
+    description: "Consciousness-related interpretations"
+  
+  - category: "emptiness"
+    description: "Śūnyatā and related concepts"
+  
+  - category: "interdependence"
+    description: "Pratītyasamutpāda and causal relationships"
+
+# Equation Reference Schema
+equation_refs:
+  format: "EQ_{section}_{number}"
+  example: "EQ_5_1"
+  metadata:
+    - equation_id
+    - latex_formula
+    - context
+    - derivation_steps
+    - related_claims
+
+# Dependency Types
+dependency_types:
+  - type: "requires"
+    description: "This claim requires another claim to be true"
+  
+  - type: "implies"
+    description: "This claim implies another claim"
+  
+  - type: "contradicts"
+    description: "This claim contradicts another claim"
+  
+  - type: "supports"
+    description: "This claim supports another claim"
+
+# Tag Categories
+tag_categories:
+  - physics
+  - mathematics
+  - consciousness
+  - ethics
+  - experimental
+  - theoretical
+  - scalar_field
+  - higgs_portal
+  - fifth_force
+  - collider
+  - quantum
+  - field_theory

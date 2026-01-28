@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Data files
+*.csv
+*.sqlite3
+*.db
+logs/
+*.log
+
+# Results
+results/
+*.png
+*.pdf
+*.jpg
+*.jpeg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Canon extracted data (keep sources, ignore large extracted files)
+canon/extracted/*.json
+canon/canon/claims/*.json
+canon/canon/equations/*.json
+canon/canon/sections/*.json
+
+# Telemetry logs
+telemetry/logs/
+telemetry/*.sqlite3
+
+# Build artifacts
+dist/
+build/
+*.egg-info/

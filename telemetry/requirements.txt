@@ -1,0 +1,15 @@
+# Telemetry System Dependencies
+
+# FastAPI server
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+pydantic>=2.0.0
+
+# Dashboard
+streamlit>=1.28.0
+pandas>=2.0.0
+
+# Sensor controller
+requests>=2.31.0
+
+# Database (SQLite is built-in, but FTS5 requires SQLite 3.5+)

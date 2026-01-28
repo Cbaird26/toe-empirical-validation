@@ -1,0 +1,141 @@
+# ToE Parameter Card
+# Frozen physical constants, equations, and conventions
+
+# Physical Constants
+M_PL_REDUCED_GEV: 2.435e18
+V_HIGGS_GEV: 246.0
+M_HIGGS_GEV: 125.0
+F_N_DEFAULT: 0.3
+HBAR_C_GEV_M: 1.973e-13
+HBAR_C_EV_M: 1.973e-7
+K_ToE: 1.764e31
+
+# Parameter Definitions
+theta_hc:
+  equation: "θ_hc ≈ -κ_cH v_c / (m_h² - m_c²)"
+  units: "dimensionless"
+  notes: "Higgs-scalar mixing angle, small angle approximation"
+
+alpha_from_theta:
+  equation: "α(λ) = (θ_hc² / K_ToE) × (m_h² / (m_h² - m_c²))²"
+  units: "dimensionless"
+  notes: "Yukawa strength parameter from mixing angle"
+
+lambda_definition:
+  equation: "λ = ħc / m_c"
+  units: "λ in meters, m_c in GeV"
+  conversion: "λ(m) = (1.973e-13 GeV·m) / m_c(GeV)"
+
+# Unit Anchor Tests
+unit_anchors:
+  - test: "λ = 100 μm → m_c ≈ 2 meV"
+    lambda_m: 1e-4
+    m_c_GeV_expected: 1.973e-12
+    tolerance: 0.01
+  
+  - test: "λ = 1 mm → m_c ≈ 0.2 meV"
+    lambda_m: 1e-3
+    m_c_GeV_expected: 1.973e-13
+    tolerance: 0.01
+
+# Resonance Region Definitions
+resonance_regions:
+  m_h_GeV: 125.0
+  danger_zone: "|m_c² - m_h²| / m_h² < 0.01"
+  action: "raise ValueError - use exact treatment"
+
+# Channel Definitions
+channels:
+  fifth_force:
+    description: "Yukawa deviation from inverse-square gravity"
+    forward_mapping_module: "code.inference.fifth_force.toe_mapping"
+    inverse_mapping_module: "code.inference.fifth_force.toe_bounds"
+    input_data: "alpha_max vs lambda_m"
+    output_data: "theta_max vs lambda_m, kappa_vc_max vs m_c"
+  
+  equivalence_principle:
+    description: "Composition-dependent acceleration differences"
+    forward_mapping_module: "code.inference.precision.equivalence_principle"
+    inverse_mapping_module: "code.inference.precision.equivalence_principle"
+    input_data: "eta_max"
+    output_data: "theta_max vs m_c"
+  
+  collider_higgs:
+    description: "Higgs invisible decay constraints"
+    forward_mapping_module: "code.inference.collider.higgs_invisible"
+    inverse_mapping_module: "code.inference.collider.higgs_invisible"
+    input_data: "BR_invisible_max"
+    output_data: "theta_max vs m_c, kappa_vc_max vs m_c"
+  
+  atomic_clocks:
+    description: "Frequency shifts from scalar effects"
+    forward_mapping_module: "code.inference.precision.atomic_clocks"
+    inverse_mapping_module: "code.inference.precision.atomic_clocks"
+    input_data: "delta_nu_nu_max"
+    output_data: "theta_max vs m_c"
+
+# Forward Mapping Functions (per channel)
+forward_mappings:
+  fifth_force:
+    function: "compute_alpha_from_theta"
+    equation: "α(λ) = (θ_hc² / K_ToE) × (m_h² / (m_h² - m_c²))²"
+    domain: "m_c << m_h"
+  
+  ep:
+    function: "compute_ep_violation_eta"
+    equation: "η = (ΔZ/A) × (θ_hc² / K_ToE) × f_nuclear"
+    domain: "all m_c"
+  
+  collider:
+    function: "compute_br_invisible"
+    equation_on_shell: "BR = sin²(θ_hc) for m_c < m_h/2"
+    equation_off_shell: "BR = (θ_hc² × phase_space) for m_c > m_h/2"
+    domain: "m_c < m_h (on-shell), m_c > m_h (off-shell)"
+  
+  clocks:
+    function: "compute_frequency_shift"
+    equation: "δν/ν = K_α × (θ_hc² / K_ToE) × scalar_amplitude"
+    domain: "ultralight scalars (m_c < 1e-10 eV)"
+
+# Inverse Mapping Functions (bounds from data)
+inverse_mappings:
+  fifth_force:
+    function: "compute_theta_max_from_alpha"
+    equation: "θ_max(λ) = sqrt(α_max(λ) × K_ToE) × |m_h² - m_c²| / m_h²"
+    domain: "Real-only: only on experimental λ support"
+  
+  ep:
+    function: "compute_theta_max_from_ep_limit"
+    equation: "θ_max = sqrt(η_max × K_ToE / (ΔZ/A × f_nuclear))"
+    domain: "Real-only"
+  
+  collider:
+    function: "compute_theta_max_from_br_limit"
+    equation_on_shell: "θ_max = arcsin(sqrt(BR_max))"
+    equation_off_shell: "θ_max = sqrt(BR_max / phase_space)"
+    domain: "m_c < m_h/2 (on-shell), m_c > m_h/2 (off-shell)"
+  
+  clocks:
+    function: "compute_theta_max_from_clock_limit"
+    equation: "θ_max = sqrt((δν/ν)_max × K_ToE / (K_α × amplitude))"
+    domain: "Real-only"
+
+# Unit Conversion Anchors
+unit_conversions:
+  lambda_to_mass:
+    equation: "m_c(GeV) = (1.973e-13 GeV·m) / λ(m)"
+    examples:
+      - lambda_m: 1e-4
+        m_c_GeV: 1.973e-12
+        m_c_meV: 1.973e-3
+      - lambda_m: 1e-3
+        m_c_GeV: 1.973e-13
+        m_c_meV: 1.973e-4
+
+# Domain Validation Rules
+domain_validation:
+  rule: "Strict real-only evaluation"
+  enforcement: "Return NaN outside experimental support"
+  extrapolation: "Forbidden"
+  per_channel: true
+  notes: "Each channel must specify domain_min and domain_max in output CSV"

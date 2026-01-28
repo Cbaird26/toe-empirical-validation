@@ -1,0 +1,183 @@
+# Minimal Scalar Hypothesis Card v0.1
+# Defines the Higgs-portal scalar model for empirical testing
+
+version: "0.1"
+model_type: "Higgs-portal scalar (Template A)"
+date_created: "2026-01-22"
+description: |
+  Minimal scalar field hypothesis for ToE constraint pipeline.
+  Assumes a scalar field Φ_c that couples to the Standard Model via
+  Higgs-portal mixing, generating a Yukawa-type fifth force and
+  modifying collider observables.
+
+# Primary Parameters
+parameters:
+  m_c:
+    description: "Scalar field mass"
+    unit: "GeV"
+    range: "[1e-6, 1e3]"  # meV to TeV scale
+    notes: "Sets the force range via λ = ħc/m_c"
+  
+  theta_hc:
+    description: "Higgs-scalar mixing angle"
+    unit: "dimensionless"
+    range: "[-1, 1]"
+    equation: "θ_hc ≈ -κ_cH v_c / (m_h² - m_c²)"
+    notes: "Small angle approximation valid for m_c << m_h"
+  
+  kappa_cH_vc:
+    description: "Effective coupling strength"
+    unit: "GeV"
+    range: "[1e-15, 1e-3]"
+    equation: "|κ_cH v_c| = |θ_hc (m_h² - m_c²)|"
+    notes: "Derived from mixing angle and mass difference"
+
+# Derived Quantities
+derived_quantities:
+  lambda_m:
+    description: "Force range parameter"
+    unit: "m"
+    equation: "λ = ħc / m_c"
+    conversion: "λ(m) = (1.973e-13 GeV·m) / m_c(GeV)"
+    notes: "Compton wavelength of the scalar mediator"
+  
+  lambda_um:
+    description: "Force range in micrometers"
+    unit: "μm"
+    equation: "λ_μm = λ_m × 1e6"
+
+# Unit Anchors (fail-fast checks)
+unit_anchors:
+  - name: "sub-mm range to meV mass"
+    test: "λ = 100 μm → m_c ≈ 2 meV"
+    lambda_m: 1e-4
+    m_c_GeV_expected: 1.973e-12
+    m_c_meV_expected: 1.973e-3
+    tolerance: 0.01
+  
+  - name: "1 mm range to 0.2 meV mass"
+    test: "λ = 1 mm → m_c ≈ 0.2 meV"
+    lambda_m: 1e-3
+    m_c_GeV_expected: 1.973e-13
+    m_c_meV_expected: 1.973e-4
+    tolerance: 0.01
+  
+  - name: "10 μm range to 20 meV mass"
+    test: "λ = 10 μm → m_c ≈ 20 meV"
+    lambda_m: 1e-5
+    m_c_GeV_expected: 1.973e-11
+    m_c_meV_expected: 1.973e-2
+    tolerance: 0.01
+
+# Resonance Guardrails
+resonance_guardrails:
+  m_h_GeV: 125.0
+  danger_zone_fraction: 0.01
+  check: "|m_c² - m_h²| / m_h² < 0.01 → raise ValueError"
+  notes: "Near-resonance region where mixing formulas break down"
+
+# Model Assumptions
+model_assumptions:
+  screening: "None (simple Yukawa mediator)"
+  cosmological_role: "Mediator only (not DM/DE)"
+  coupling_structure: "Higgs-portal via H†H operator"
+  self_interactions: "Negligible (linear theory)"
+
+# Channel Mappings
+channels:
+  fifth_force:
+    description: "Yukawa deviation from inverse-square gravity"
+    forward_mapping: "α(λ) = (θ_hc² / K_ToE) × (m_h² / (m_h² - m_c²))²"
+    inverse_mapping: "θ_max(λ) = sqrt(α_max(λ) × K_ToE) × |m_h² - m_c²| / m_h²"
+    input_format: "alpha_max vs lambda_m"
+    output_format: "theta_max vs lambda_m, kappa_vc_max vs m_c"
+    mandatory_datasets:
+      - "lee2020_fig5_canonical.csv"
+      - "eotwash_2016_canonical.csv"
+    domain_validation: "Real-only: NaN outside experimental λ support"
+  
+  equivalence_principle:
+    description: "Composition-dependent acceleration differences"
+    forward_mapping: "η_EP = (ΔZ/A) × (θ_hc² / K_ToE) × coupling_coefficient"
+    inverse_mapping: "θ_max from η_max limit"
+    input_format: "eta_max (EP violation parameter)"
+    output_format: "theta_max vs m_c"
+    mandatory_datasets:
+      - "microscope_ep_limits.csv"
+    domain_validation: "Real-only"
+  
+  collider_higgs:
+    description: "Higgs invisible decay and signal strength modifications"
+    forward_mapping: "BR(H → invisible) = sin²(θ_hc) for m_c < m_h/2"
+    inverse_mapping: "θ_max = arcsin(sqrt(BR_max))"
+    input_format: "BR_invisible_max"
+    output_format: "theta_max vs m_c, kappa_vc_max vs m_c"
+    mandatory_datasets:
+      - "atlas_hinv_2023.csv"
+      - "cms_hinv_2023.csv"
+    domain_validation: "m_c < m_h/2 for on-shell, m_c > m_h/2 for off-shell"
+  
+  atomic_clocks:
+    description: "Frequency shifts from scalar-induced constant variations"
+    forward_mapping: "δν/ν = K_α × (θ_hc² / K_ToE) × scalar_amplitude"
+    inverse_mapping: "θ_max from frequency shift limits"
+    input_format: "delta_nu_nu_max"
+    output_format: "theta_max vs m_c"
+    mandatory_datasets:
+      - "nist_clock_limits.csv"
+      - "ptb_clock_limits.csv"
+    domain_validation: "Real-only"
+
+# Physical Constants
+constants:
+  M_PL_REDUCED_GEV: 2.435e18
+  V_HIGGS_GEV: 246.0
+  M_HIGGS_GEV: 125.0
+  HBAR_C_GEV_M: 1.973e-13
+  HBAR_C_EV_M: 1.973e-7
+  K_ToE: 1.764e31  # Normalization constant for fifth-force mapping
+
+# Forward Mapping Equations (per channel)
+forward_mappings:
+  fifth_force_alpha:
+    equation: "α(λ) = (θ_hc² / K_ToE) × (m_h² / (m_h² - m_c²))²"
+    domain: "m_c << m_h (non-resonant)"
+    notes: "Small mixing angle, far from resonance"
+  
+  collider_br_invisible:
+    equation_on_shell: "BR = sin²(θ_hc) for m_c < m_h/2"
+    equation_off_shell: "BR = (θ_hc² × phase_space) for m_c > m_h/2"
+    notes: "On-shell vs off-shell decay modes"
+  
+  ep_violation:
+    equation: "η = (ΔZ/A) × (θ_hc² / K_ToE) × f_nuclear"
+    notes: "Composition-dependent coupling via nuclear content"
+
+# Inverse Mapping Equations (bounds from data)
+inverse_mappings:
+  theta_max_from_alpha:
+    equation: "θ_max(λ) = sqrt(α_max(λ) × K_ToE) × |m_h² - m_c²| / m_h²"
+    domain: "Real-only: only on experimental λ support"
+  
+  kappa_vc_max_from_theta:
+    equation: "|κ_cH v_c|_max = |θ_max × (m_h² - m_c²)|"
+    notes: "Derived bound on coupling strength"
+
+# Domain Validation Rules
+domain_validation:
+  rule: "Strict real-only evaluation"
+  enforcement: "Return NaN outside experimental support"
+  extrapolation: "Forbidden"
+  notes: "Each channel must specify domain_min and domain_max"
+
+# Output Schema (standardized CSV format)
+output_schema:
+  columns:
+    - "m_c_GeV"
+    - "lambda_m"
+    - "theta_max"
+    - "kappa_vc_max_GeV"
+    - "domain_min"
+    - "domain_max"
+    - "channel_name"
+  notes: "All channels must produce this format for fusion"
