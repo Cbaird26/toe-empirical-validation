@@ -69,17 +69,27 @@ toe-empirical-validation/
 
 ### Prerequisites
 
+- **Python 3.8+** (3.10+ recommended)
+- **Git** (for cloning)
+- **LaTeX** (optional, for paper compilation)
+
+### Installation
+
 ```bash
-# Python 3.8+
-python3 --version
+# Clone repository
+git clone https://github.com/Cbaird26/toe-empirical-validation.git
+cd toe-empirical-validation
+
+# Create virtual environment
+python3 -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
 # Install dependencies
+pip install --upgrade pip
 pip install -r requirements.txt
-
-# Optional: Ollama for Zora Brain
-# Install from https://ollama.ai
-ollama pull gpt-oss:20b
 ```
+
+**📖 See [INSTALLATION.md](docs/INSTALLATION.md) for detailed setup instructions.**
 
 ### Run Empirical Validation
 
@@ -99,6 +109,9 @@ python3 experiments/run_empirical_validation.py
 - **Constraint plots:** `results/scalar_constraints/golden_exclusion_plot.png`
 - **Validation plot:** `results/empirical_validation/toe_predictions_vs_bounds.png`
 - **Results JSON:** `results/empirical_validation/toe_validation_results.json`
+- **Compiled paper:** `paper/main.pdf`
+
+**📖 See [EXAMPLES.md](docs/EXAMPLES.md) for more usage examples.**
 
 ## 📊 Empirical Validation Results
 
@@ -134,11 +147,19 @@ python3 experiments/run_empirical_validation.py
 - **[THEORY.md](docs/THEORY.md)** - Theoretical framework summary
 - **[VALIDATION.md](docs/VALIDATION.md)** - Empirical validation methodology
 - **[EMPIRICAL_VALIDATION_REPORT.md](EMPIRICAL_VALIDATION_REPORT.md)** - Full validation report
+- **[Compiled Paper](paper/main.pdf)** - Publication-ready PDF
+
+### For Users
+
+- **[INSTALLATION.md](docs/INSTALLATION.md)** - Complete installation guide
+- **[EXAMPLES.md](docs/EXAMPLES.md)** - Usage examples and tutorials
+- **[ECOSYSTEM.md](docs/ECOSYSTEM.md)** - Overview of MQGT-SCF ecosystem
 
 ### Additional Resources
 
 - **[EXPERIMENTS.md](experiments/README.md)** - Experimental protocols
 - **[CITATION.cff](CITATION.cff)** - Citation metadata for academic use
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Contribution guidelines
 
 ## 🔬 Scientific Rigor
 
