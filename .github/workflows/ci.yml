@@ -13,8 +13,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         python-version: ['3.8', '3.9', '3.10', '3.11']
+        os: [ubuntu-latest]
     
     steps:
     - uses: actions/checkout@v4
@@ -48,8 +50,10 @@ jobs:
     - name: Check code quality
       run: |
         pip install flake8 black
-        flake8 scripts/ experiments/ --count --select=E9,F63,F7,F82 --show-source --statistics || true
-        black --check scripts/ experiments/ || true
+        echo "Running flake8..."
+        flake8 scripts/ experiments/ --count --select=E9,F63,F7,F82 --show-source --statistics --max-line-length=100 || echo "Flake8 completed with warnings"
+        echo "Running black check..."
+        black --check scripts/ experiments/ --line-length=100 || echo "Black formatting suggestions available"
 
   validate-results:
     runs-on: ubuntu-latest

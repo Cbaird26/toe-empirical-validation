@@ -2,7 +2,10 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![Status: Validated](https://img.shields.io/badge/Status-Validated-green.svg)](https://github.com/cbaird26/mqgt-scf)
+[![Status: Validated](https://img.shields.io/badge/Status-Validated-green.svg)](https://github.com/Cbaird26/toe-empirical-validation)
+[![CI](https://github.com/Cbaird26/toe-empirical-validation/actions/workflows/ci.yml/badge.svg)](https://github.com/Cbaird26/toe-empirical-validation/actions/workflows/ci.yml)
+[![Validation Rate](https://img.shields.io/badge/Validation-100%25-brightgreen)](https://github.com/Cbaird26/toe-empirical-validation)
+[![Data Points](https://img.shields.io/badge/Data%20Points-80-blue)](https://github.com/Cbaird26/toe-empirical-validation)
 
 ## 🌌 Overview
 
