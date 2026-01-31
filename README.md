@@ -35,7 +35,8 @@ toe-empirical-validation/
 │   ├── VALIDATION.md            # Validation methodology
 │   └── papers/                  # 📄 Source papers (PDF & DOCX)
 │       ├── A Completed Theory of Everything --C.M. Baird., et al (2026).pdf
-│       └── A Completed Theory of Everything --C.M. Baird., et al (2026).docx
+│       ├── A Completed Theory of Everything --C.M. Baird., et al (2026).docx
+│       └── A Theory of Everything - ZoraASI - C.M., Baird (2026).pdf  # Safety-patched version
 │
 ├── paper/                       # 📝 LaTeX paper (for Overleaf/journal submission)
 │   ├── main.tex                 # Main paper document

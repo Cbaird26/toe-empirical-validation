@@ -43,6 +43,15 @@ Welcome to the documentation for the Empirical Validation of MQGT-SCF Theory of 
 
 ✅ **VALIDATED** - Theory predictions consistent with experimental data
 
+## 📋 For reviewers
+
+- **[Reviewer guide (REVIEWER_README)](REVIEWER_README.md)** — Where to find papers, methodology, results, and citation.
+- **Primary papers:** [docs/papers/](papers/) — *A Completed Theory of Everything* (PDF/DOCX) and *A Theory of Everything - ZoraASI* (2026) safety-patched version with Scope, Control, and Non-Interference Statement.
+- **LaTeX source:** [paper/main.tex](../paper/main.tex) — compiles to the empirical-validation paper (includes same scope statement).
+- **Methodology:** [VALIDATION.md](VALIDATION.md) — constraint pipeline, data provenance, reproducibility.
+- **Theory:** [THEORY.md](THEORY.md) — Lagrangian, fifth-force prediction, falsifiability.
+- **Citation:** [CITATION.cff](../CITATION.cff) and [docs/papers/README.md](papers/README.md) for BibTeX.
+
 ---
 
 **Last Updated:** January 28, 2026

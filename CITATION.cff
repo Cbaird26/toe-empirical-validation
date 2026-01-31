@@ -27,3 +27,10 @@ references:
         family-names: "Baird"
     year: 2026
     note: "Source document available in docs/papers/"
+  - type: article
+    title: "A Theory of Everything (ZoraASI)"
+    authors:
+      - given-names: "Christopher Michael"
+        family-names: "Baird"
+    year: 2026
+    note: "Safety-patched version with Scope, Control, and Non-Interference Statement; docs/papers/"

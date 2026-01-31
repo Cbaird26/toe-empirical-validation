@@ -39,7 +39,7 @@ latexmk -pdf main.tex
 The paper includes:
 
 1. **Abstract** - Summary of validation results
-2. **Introduction** - Context and motivation
+2. **Introduction** - Context and motivation; **Scope, Control, and Non-Interference Statement** (Hard Patch) — physics vs engineering safety, Zora advisory-by-default, no interference with lawful defense/governance
 3. **Theoretical Framework** - Unified Lagrangian and predictions
 4. **Empirical Validation Methodology** - Constraint pipeline
 5. **Results** - 80 data points, 100% validation rate
