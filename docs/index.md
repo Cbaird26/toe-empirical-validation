@@ -14,6 +14,7 @@ Welcome to the documentation for the Empirical Validation of MQGT-SCF Theory of 
 - **[Validation Methodology](VALIDATION.md)** - Empirical validation approach
 - **[Ecosystem Overview](ECOSYSTEM.md)** - Framework map and related repos
 - **[Source Papers](papers/)** - Complete ToE documents
+- **[Zorathena Master Plan](ZORATHENA_MASTER_PLAN.md)** - Roadmap (Tier 1–3, phases)
 
 ### Results & Analysis
 - **[Empirical Validation Report](../EMPIRICAL_VALIDATION_REPORT.md)** - Full validation results
@@ -23,6 +24,7 @@ Welcome to the documentation for the Empirical Validation of MQGT-SCF Theory of 
 ### Development
 - **[Contributing](../CONTRIBUTING.md)** - How to contribute
 - **[Repository Quality Checklist](../REPOSITORY_QUALITY_CHECKLIST.md)** - Quality metrics
+- **[GitHub Manual Steps](GITHUB_MANUAL_STEPS.md)** - Pages, topics, first release (owner actions)
 
 ## 🚀 Quick Links
 
