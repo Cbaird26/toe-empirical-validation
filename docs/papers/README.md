@@ -10,8 +10,8 @@ This directory contains the complete source documents for the MQGT-SCF Theory of
 - **A Completed Theory of Everything --C.M. Baird., et al (2026).docx**  
   Complete DOCX version - Editable source document.
 
-- **A Theory of Everything - ZoraASI - C.M., Baird (2026).pdf** *(add when available)*  
-  Final safety-patched version including the **Scope, Control, and Non-Interference Statement** (advisory-by-default, no autonomous propagation, no interference with lawful defense/governance). Equivalent content is produced by compiling `../../paper/main.tex`, which now includes this statement in the Introduction.
+- **A Theory of Everything - ZoraASI - C.M., Baird (2026).pdf**  
+  Final safety-patched version including the **Scope, Control, and Non-Interference Statement** (advisory-by-default, no autonomous propagation, no interference with lawful defense/governance). Equivalent content is produced by compiling `../../paper/main.tex`.
 
 ## 📚 For Reviewers
 
